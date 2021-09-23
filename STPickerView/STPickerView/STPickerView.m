@@ -32,7 +32,7 @@
 {
     // 1.设置数据的默认值
     _title             = nil;
-    _font              = [UIFont systemFontOfSize:17];
+    _buttonFont              = [UIFont systemFontOfSize:17];
     _titleColor        = [UIColor blackColor];
     _borderButtonColor = [UIColor colorWithRed:205.0/255 green:205.0/255 blue:205.0/255 alpha:1] ;
     _heightPicker      = 240;
@@ -151,12 +151,12 @@
     [self.labelTitle setText:title];
 }
 
-- (void)setFont:(UIFont *)font
+- (void)setButtonFont:(UIFont *)buttonFont
 {
-    _font = font;
-    [self.buttonLeft.titleLabel setFont:font];
-    [self.buttonRight.titleLabel setFont:font];
-    [self.labelTitle setFont:font];
+    _buttonFont = buttonFont;
+    [self.buttonLeft.titleLabel setFont:buttonFont];
+    [self.buttonRight.titleLabel setFont:buttonFont];
+    [self.labelTitle setFont:buttonFont];
 }
 
 - (void)setTitleColor:(UIColor *)titleColor
@@ -243,7 +243,7 @@
         [_buttonLeft setTitle:@"取消" forState:UIControlStateNormal];
         [_buttonLeft setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_buttonLeft addBorderColor:self.borderButtonColor];
-        [_buttonLeft.titleLabel setFont:self.font];
+        [_buttonLeft.titleLabel setFont:self.buttonFont];
         [_buttonLeft addTarget:self action:@selector(selectedCancel) forControlEvents:UIControlEventTouchUpInside];
         _buttonLeft.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     }
@@ -261,7 +261,7 @@
         [_buttonRight setTitle:@"确定" forState:UIControlStateNormal];
         [_buttonRight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_buttonRight addBorderColor:self.borderButtonColor];
-        [_buttonRight.titleLabel setFont:self.font];
+        [_buttonRight.titleLabel setFont:self.buttonFont];
         [_buttonRight addTarget:self action:@selector(selectedOk) forControlEvents:UIControlEventTouchUpInside];
         _buttonRight.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     }
@@ -278,7 +278,7 @@
         _labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(titleX, titleY, titleW, titleH)];
         [_labelTitle setTextAlignment:NSTextAlignmentCenter];
         [_labelTitle setTextColor:self.titleColor];
-        [_labelTitle setFont:self.font];
+        [_labelTitle setFont:self.buttonFont];
         _labelTitle.adjustsFontSizeToFitWidth = YES;
         _labelTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     }
